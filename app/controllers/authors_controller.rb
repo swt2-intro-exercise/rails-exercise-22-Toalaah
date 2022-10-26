@@ -9,9 +9,12 @@ class AuthorsController < ApplicationController
 
   def create
     @author = Author.new(author_params)
-    @author.save()
-
-    redirect_to @author, notice: 'Successfully created new author!'
+    if @author.save
+      redirect_to @author, notice: 'Successfully created new author!'
+    else
+      # redirects to new author route in order to display validation errors
+      render 'new'
+    end
   end
 
   def show
@@ -24,4 +27,3 @@ class AuthorsController < ApplicationController
     params.require(:author).permit(:first_name, :last_name, :homepage)
   end
 end
-
