@@ -1,5 +1,7 @@
-<h1>Author Edit Page</h1>
+<h1>Edit author:
+  <%= @author.name %>
+</h1>
 
-<strong>TODO</strong>
+<%= render 'form', author: @author %>
 
 <%= link_to 'Back', authors_path %>
