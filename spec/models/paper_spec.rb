@@ -8,6 +8,11 @@ RSpec.describe Paper, type: :model do
       expect(paper.venue).to eq('Venue')
       expect(paper.year).to eq(1219)
     end
+
+    it 'has a relation to zero or more authors' do
+      paper = Paper.new(title: 'Test', venue: 'Venue', year: 1219)
+      expect(paper.authors).to eq []
+    end
   end
 
   context 'with invalid arguments' do
