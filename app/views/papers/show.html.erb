@@ -6,5 +6,16 @@
   <%= link_to "Edit this paper", edit_paper_path(@paper) %> |
   <%= link_to "Back to papers", papers_path %>
 
+  <% if @paper.authors.any? %>
+    <p> Written by:
+    </p>
+    <% @paper.authors.each do |author| %>
+      <ul>
+        <li><%= author.name %></li>
+      </ul>
+  <% end %>
+
+  <% end %>
+
   <%= button_to "Destroy this paper", @paper, method: :delete %>
 </div>

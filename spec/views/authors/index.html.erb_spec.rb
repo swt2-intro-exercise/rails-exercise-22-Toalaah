@@ -16,8 +16,8 @@ RSpec.describe 'authors/index', type: :view do
   end
 
   it 'shows a link to create a new author' do
-    page = render
-    expect(page).to have_link 'New author', href: new_author_path
+    render
+    expect(rendered).to have_link 'New author', href: new_author_path
   end
 
   it 'shows a link to delete an existing author' do
